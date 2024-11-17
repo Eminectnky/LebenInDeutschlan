@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "name": "Baden Württemberg",
+    "flag": "state_flags/baden-wurttemberg.png",
+    "coat_of_arms": "state_coat_of_arms/baden-wurttemberg.png",
+    "question_sub_category_id": 21,
+    "key": "bw"
+  },
+  {
+    "id": 2,
+    "name": "Bayern",
+    "flag": "state_flags/bavaria.png",
+    "coat_of_arms": "state_coat_of_arms/bavaria.png",
+    "question_sub_category_id": 22,
+    "key": "by"
+  },
+  {
+    "id": 3,
+    "name": "Berlin",
+    "flag": "state_flags/berlin.png",
+    "coat_of_arms": "state_coat_of_arms/berlin.png",
+    "question_sub_category_id": 23,
+    "key": "be"
+  },
+  {
+    "id": 4,
+    "name": "Brandenburg",
+    "flag": "state_flags/brandenburg.png",
+    "coat_of_arms": "state_coat_of_arms/brandenburg.png",
+    "question_sub_category_id": 24,
+    "key": "bb"
+  },
+  {
+    "id": 5,
+    "name": "Bremen",
+    "flag": "state_flags/bremen.png",
+    "coat_of_arms": "state_coat_of_arms/bremen.png",
+    "question_sub_category_id": 25,
+    "key": "hb"
+  },
+  {
+    "id": 6,
+    "name": "Hamburg",
+    "flag": "state_flags/hamburg.png",
+    "coat_of_arms": "state_coat_of_arms/hamburg.png",
+    "question_sub_category_id": 26,
+    "key": "hh"
+  },
+  {
+    "id": 7,
+    "name": "Hessen",
+    "flag": "state_flags/hessen.png",
+    "coat_of_arms": "state_coat_of_arms/hessen.png",
+    "question_sub_category_id": 27,
+    "key": "he"
+  },
+  {
+    "id": 8,
+    "name": "Mecklenburg Vorpommern",
+    "flag": "state_flags/mecklenburg-western-pomerania.png",
+    "coat_of_arms": "state_coat_of_arms/mecklenburg-western-pomerania.png",
+    "question_sub_category_id": 28,
+    "key": "mv"
+  },
+  {
+    "id": 9,
+    "name": "Niedersachsen",
+    "flag": "state_flags/lower-saxony.png",
+    "coat_of_arms": "state_coat_of_arms/lower-saxony.png",
+    "question_sub_category_id": 29,
+    "key": "ni"
+  },
+  {
+    "id": 10,
+    "name": "Nordrhein Westfalen",
+    "flag": "state_flags/north-rhine-westphalia.png",
+    "coat_of_arms": "state_coat_of_arms/north-rhine-westphalia.png",
+    "question_sub_category_id": 30,
+    "key": "nw"
+  },
+  {
+    "id": 11,
+    "name": "Rheinland Pfalz",
+    "flag": "state_flags/rhineland-palatinate.png",
+    "coat_of_arms": "state_coat_of_arms/rhineland-palatinate.png",
+    "question_sub_category_id": 31,
+    "key": "rp"
+  },
+  {
+    "id": 12,
+    "name": "Saarland",
+    "flag": "state_flags/saarland.png",
+    "coat_of_arms": "state_coat_of_arms/saarland.png",
+    "question_sub_category_id": 32,
+    "key": "sl"
+  },
+  {
+    "id": 13,
+    "name": "Sachsen",
+    "flag": "state_flags/saxony.png",
+    "coat_of_arms": "state_coat_of_arms/saxony.png",
+    "question_sub_category_id": 33,
+    "key": "sn"
+  },
+  {
+    "id": 14,
+    "name": "Sachsen Anhalt",
+    "flag": "state_flags/saxony-anhalt.png",
+    "coat_of_arms": "state_coat_of_arms/saxony-anhalt.png",
+    "question_sub_category_id": 34,
+    "key": "st"
+  },
+  {
+    "id": 15,
+    "name": "Schleswig Holstein",
+    "flag": "state_flags/schleswig-holstein.png",
+    "coat_of_arms": "state_coat_of_arms/schleswig-holstein.png",
+    "question_sub_category_id": 35,
+    "key": "sh"
+  },
+  {
+    "id": 16,
+    "name": "Thüringen",
+    "flag": "state_flags/thuringia.png",
+    "coat_of_arms": "state_coat_of_arms/thuringia.png",
+    "question_sub_category_id": 36,
+    "key": "th"
+  }
+]

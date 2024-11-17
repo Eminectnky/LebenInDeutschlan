@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE17883B2BCD62E900C0BB69 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17883A2BCD62E900C0BB69 /* SplashScreen.swift */; };
+		FE1788432BCD770000C0BB69 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1788422BCD770000C0BB69 /* HomeView.swift */; };
+		FE522ED52BDFC74100D6506A /* all_federal_state_questions.json in Resources */ = {isa = PBXBuildFile; fileRef = FE522ED42BDFC74100D6506A /* all_federal_state_questions.json */; };
+		FE522ED72BDFC7B800D6506A /* all_question_data.json in Resources */ = {isa = PBXBuildFile; fileRef = FE522ED62BDFC7B800D6506A /* all_question_data.json */; };
+		FE522ED92BDFC7FB00D6506A /* federal_states.json in Resources */ = {isa = PBXBuildFile; fileRef = FE522ED82BDFC7FB00D6506A /* federal_states.json */; };
+		FE522EDB2BDFC89700D6506A /* main_category_localizations_de.json in Resources */ = {isa = PBXBuildFile; fileRef = FE522EDA2BDFC89700D6506A /* main_category_localizations_de.json */; };
+		FE522EDD2BDFC8F700D6506A /* sub_category_localizations_de.json in Resources */ = {isa = PBXBuildFile; fileRef = FE522EDC2BDFC8F700D6506A /* sub_category_localizations_de.json */; };
+		FE55D7B52CB7EADA004AC3F2 /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D7B42CB7EADA004AC3F2 /* QuestionDetailView.swift */; };
+		FE55D7B72CB811B6004AC3F2 /* FederalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D7B62CB811B6004AC3F2 /* FederalState.swift */; };
+		FE5A3E142C3574E100BF9939 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = FE5A3E132C3574E100BF9939 /* SwiftUIPager */; };
+		FE675D8D2BE0FE6F00A0DE1F /* AllQuestionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675D8C2BE0FE6F00A0DE1F /* AllQuestionsModel.swift */; };
+		FE700FEC2BCEAC2E00ECC544 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE700FEB2BCEAC2D00ECC544 /* CategoryView.swift */; };
+		FE700FEE2BCEAC4A00ECC544 /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE700FED2BCEAC4A00ECC544 /* ExamView.swift */; };
+		FE700FF02BCEAC6500ECC544 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE700FEF2BCEAC6500ECC544 /* SettingsView.swift */; };
+		FE80B9B22BCD5A62008DBC96 /* LebenInDeutschlanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE80B9B12BCD5A62008DBC96 /* LebenInDeutschlanApp.swift */; };
+		FE80B9B42BCD5A62008DBC96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE80B9B32BCD5A62008DBC96 /* ContentView.swift */; };
+		FE80B9B62BCD5A64008DBC96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE80B9B52BCD5A64008DBC96 /* Assets.xcassets */; };
+		FE80B9B92BCD5A64008DBC96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE80B9B82BCD5A64008DBC96 /* Preview Assets.xcassets */; };
+		FE88AFBE2C3812EC001BDDFA /* CategoryComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE88AFBD2C3812EC001BDDFA /* CategoryComponents.swift */; };
+		FE88AFC02C381C6A001BDDFA /* PolitikInDerDemokratie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE88AFBF2C381C6A001BDDFA /* PolitikInDerDemokratie.swift */; };
+		FE88AFC22C381E00001BDDFA /* GeschichteUndVerantwortung.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE88AFC12C381E00001BDDFA /* GeschichteUndVerantwortung.swift */; };
+		FE88AFC42C381EED001BDDFA /* MenschUndGesellschaft.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE88AFC32C381EED001BDDFA /* MenschUndGesellschaft.swift */; };
+		FE96AD192CE156FD00E8E867 /* StateSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE96AD182CE156FD00E8E867 /* StateSelectionView.swift */; };
+		FEA555CA2C3AC6E600E6F95F /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA555C92C3AC6E600E6F95F /* ImageHelper.swift */; };
+		FEB206C62BDE679900E6421B /* AllQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB206C52BDE679900E6421B /* AllQuestions.swift */; };
+		FEB206C82BDEEE0A00E6421B /* CustomNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB206C72BDEEE0A00E6421B /* CustomNavigationLink.swift */; };
+		FEF9074B2C332367004BE528 /* FederalStatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9074A2C332367004BE528 /* FederalStatesModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FE17883A2BCD62E900C0BB69 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		FE1788422BCD770000C0BB69 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FE522ED42BDFC74100D6506A /* all_federal_state_questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = all_federal_state_questions.json; sourceTree = "<group>"; };
+		FE522ED62BDFC7B800D6506A /* all_question_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = all_question_data.json; sourceTree = "<group>"; };
+		FE522ED82BDFC7FB00D6506A /* federal_states.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = federal_states.json; sourceTree = "<group>"; };
+		FE522EDA2BDFC89700D6506A /* main_category_localizations_de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main_category_localizations_de.json; sourceTree = "<group>"; };
+		FE522EDC2BDFC8F700D6506A /* sub_category_localizations_de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sub_category_localizations_de.json; sourceTree = "<group>"; };
+		FE55D7B42CB7EADA004AC3F2 /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
+		FE55D7B62CB811B6004AC3F2 /* FederalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FederalState.swift; sourceTree = "<group>"; };
+		FE675D8C2BE0FE6F00A0DE1F /* AllQuestionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionsModel.swift; sourceTree = "<group>"; };
+		FE700FEB2BCEAC2D00ECC544 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		FE700FED2BCEAC4A00ECC544 /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
+		FE700FEF2BCEAC6500ECC544 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FE80B9AE2BCD5A62008DBC96 /* LebenInDeutschlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LebenInDeutschlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE80B9B12BCD5A62008DBC96 /* LebenInDeutschlanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LebenInDeutschlanApp.swift; sourceTree = "<group>"; };
+		FE80B9B32BCD5A62008DBC96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FE80B9B52BCD5A64008DBC96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE80B9B82BCD5A64008DBC96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE88AFBD2C3812EC001BDDFA /* CategoryComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponents.swift; sourceTree = "<group>"; };
+		FE88AFBF2C381C6A001BDDFA /* PolitikInDerDemokratie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolitikInDerDemokratie.swift; sourceTree = "<group>"; };
+		FE88AFC12C381E00001BDDFA /* GeschichteUndVerantwortung.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeschichteUndVerantwortung.swift; sourceTree = "<group>"; };
+		FE88AFC32C381EED001BDDFA /* MenschUndGesellschaft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenschUndGesellschaft.swift; sourceTree = "<group>"; };
+		FE96AD182CE156FD00E8E867 /* StateSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSelectionView.swift; sourceTree = "<group>"; };
+		FEA555C92C3AC6E600E6F95F /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		FEB206C52BDE679900E6421B /* AllQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestions.swift; sourceTree = "<group>"; };
+		FEB206C72BDEEE0A00E6421B /* CustomNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLink.swift; sourceTree = "<group>"; };
+		FEF9074A2C332367004BE528 /* FederalStatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FederalStatesModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE80B9AB2BCD5A62008DBC96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5A3E142C3574E100BF9939 /* SwiftUIPager in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE17883C2BCD6C9000C0BB69 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		FE17883D2BCD734000C0BB69 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FE1788422BCD770000C0BB69 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FE17883F2BCD736A00C0BB69 /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+				FE700FED2BCEAC4A00ECC544 /* ExamView.swift */,
+			);
+			path = Exam;
+			sourceTree = "<group>";
+		};
+		FE1788402BCD739000C0BB69 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FE327E3F2CE9125000EB9816 /* FederalState */,
+				FE700FEB2BCEAC2D00ECC544 /* CategoryView.swift */,
+				FEB206C52BDE679900E6421B /* AllQuestions.swift */,
+				FE88AFBD2C3812EC001BDDFA /* CategoryComponents.swift */,
+				FE88AFBF2C381C6A001BDDFA /* PolitikInDerDemokratie.swift */,
+				FE88AFC12C381E00001BDDFA /* GeschichteUndVerantwortung.swift */,
+				FE88AFC32C381EED001BDDFA /* MenschUndGesellschaft.swift */,
+				FE55D7B42CB7EADA004AC3F2 /* QuestionDetailView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FE1788412BCD739F00C0BB69 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FE700FEF2BCEAC6500ECC544 /* SettingsView.swift */,
+				FE96AD182CE156FD00E8E867 /* StateSelectionView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FE327E3F2CE9125000EB9816 /* FederalState */ = {
+			isa = PBXGroup;
+			children = (
+				FE55D7B62CB811B6004AC3F2 /* FederalState.swift */,
+			);
+			path = FederalState;
+			sourceTree = "<group>";
+		};
+		FE522ED32BDFC51100D6506A /* JsonData */ = {
+			isa = PBXGroup;
+			children = (
+				FE522ED42BDFC74100D6506A /* all_federal_state_questions.json */,
+				FE522ED62BDFC7B800D6506A /* all_question_data.json */,
+				FE522ED82BDFC7FB00D6506A /* federal_states.json */,
+				FE522EDA2BDFC89700D6506A /* main_category_localizations_de.json */,
+				FE522EDC2BDFC8F700D6506A /* sub_category_localizations_de.json */,
+			);
+			path = JsonData;
+			sourceTree = "<group>";
+		};
+		FE522EDE2BDFE15900D6506A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE675D8C2BE0FE6F00A0DE1F /* AllQuestionsModel.swift */,
+				FEF9074A2C332367004BE528 /* FederalStatesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FE80B9A52BCD5A62008DBC96 = {
+			isa = PBXGroup;
+			children = (
+				FE80B9B02BCD5A62008DBC96 /* LebenInDeutschlan */,
+				FE80B9AF2BCD5A62008DBC96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE80B9AF2BCD5A62008DBC96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE80B9AE2BCD5A62008DBC96 /* LebenInDeutschlan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE80B9B02BCD5A62008DBC96 /* LebenInDeutschlan */ = {
+			isa = PBXGroup;
+			children = (
+				FE522EDE2BDFE15900D6506A /* Models */,
+				FE522ED32BDFC51100D6506A /* JsonData */,
+				FE1788412BCD739F00C0BB69 /* Settings */,
+				FE1788402BCD739000C0BB69 /* Category */,
+				FE17883F2BCD736A00C0BB69 /* Exam */,
+				FE17883D2BCD734000C0BB69 /* Home */,
+				FE17883C2BCD6C9000C0BB69 /* Dashboard */,
+				FE80B9BF2BCD609E008DBC96 /* Utils */,
+				FE80B9B32BCD5A62008DBC96 /* ContentView.swift */,
+				FE80B9B52BCD5A64008DBC96 /* Assets.xcassets */,
+				FE80B9B72BCD5A64008DBC96 /* Preview Content */,
+			);
+			path = LebenInDeutschlan;
+			sourceTree = "<group>";
+		};
+		FE80B9B72BCD5A64008DBC96 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FE80B9B82BCD5A64008DBC96 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FE80B9BF2BCD609E008DBC96 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FE17883A2BCD62E900C0BB69 /* SplashScreen.swift */,
+				FE80B9B12BCD5A62008DBC96 /* LebenInDeutschlanApp.swift */,
+				FEB206C72BDEEE0A00E6421B /* CustomNavigationLink.swift */,
+				FEA555C92C3AC6E600E6F95F /* ImageHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE80B9AD2BCD5A62008DBC96 /* LebenInDeutschlan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE80B9BC2BCD5A64008DBC96 /* Build configuration list for PBXNativeTarget "LebenInDeutschlan" */;
+			buildPhases = (
+				FE80B9AA2BCD5A62008DBC96 /* Sources */,
+				FE80B9AB2BCD5A62008DBC96 /* Frameworks */,
+				FE80B9AC2BCD5A62008DBC96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LebenInDeutschlan;
+			packageProductDependencies = (
+				FE5A3E132C3574E100BF9939 /* SwiftUIPager */,
+			);
+			productName = LebenInDeutschlan;
+			productReference = FE80B9AE2BCD5A62008DBC96 /* LebenInDeutschlan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE80B9A62BCD5A62008DBC96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					FE80B9AD2BCD5A62008DBC96 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = FE80B9A92BCD5A62008DBC96 /* Build configuration list for PBXProject "LebenInDeutschlan" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE80B9A52BCD5A62008DBC96;
+			packageReferences = (
+				FE5A3E122C3574E100BF9939 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+			);
+			productRefGroup = FE80B9AF2BCD5A62008DBC96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE80B9AD2BCD5A62008DBC96 /* LebenInDeutschlan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE80B9AC2BCD5A62008DBC96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE80B9B92BCD5A64008DBC96 /* Preview Assets.xcassets in Resources */,
+				FE522EDD2BDFC8F700D6506A /* sub_category_localizations_de.json in Resources */,
+				FE522ED92BDFC7FB00D6506A /* federal_states.json in Resources */,
+				FE522EDB2BDFC89700D6506A /* main_category_localizations_de.json in Resources */,
+				FE522ED52BDFC74100D6506A /* all_federal_state_questions.json in Resources */,
+				FE80B9B62BCD5A64008DBC96 /* Assets.xcassets in Resources */,
+				FE522ED72BDFC7B800D6506A /* all_question_data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE80B9AA2BCD5A62008DBC96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE88AFC42C381EED001BDDFA /* MenschUndGesellschaft.swift in Sources */,
+				FE96AD192CE156FD00E8E867 /* StateSelectionView.swift in Sources */,
+				FE88AFC02C381C6A001BDDFA /* PolitikInDerDemokratie.swift in Sources */,
+				FE700FF02BCEAC6500ECC544 /* SettingsView.swift in Sources */,
+				FE17883B2BCD62E900C0BB69 /* SplashScreen.swift in Sources */,
+				FE1788432BCD770000C0BB69 /* HomeView.swift in Sources */,
+				FE675D8D2BE0FE6F00A0DE1F /* AllQuestionsModel.swift in Sources */,
+				FEB206C62BDE679900E6421B /* AllQuestions.swift in Sources */,
+				FE80B9B42BCD5A62008DBC96 /* ContentView.swift in Sources */,
+				FE88AFBE2C3812EC001BDDFA /* CategoryComponents.swift in Sources */,
+				FEB206C82BDEEE0A00E6421B /* CustomNavigationLink.swift in Sources */,
+				FE80B9B22BCD5A62008DBC96 /* LebenInDeutschlanApp.swift in Sources */,
+				FE700FEC2BCEAC2E00ECC544 /* CategoryView.swift in Sources */,
+				FE700FEE2BCEAC4A00ECC544 /* ExamView.swift in Sources */,
+				FE55D7B72CB811B6004AC3F2 /* FederalState.swift in Sources */,
+				FE88AFC22C381E00001BDDFA /* GeschichteUndVerantwortung.swift in Sources */,
+				FE55D7B52CB7EADA004AC3F2 /* QuestionDetailView.swift in Sources */,
+				FEF9074B2C332367004BE528 /* FederalStatesModel.swift in Sources */,
+				FEA555CA2C3AC6E600E6F95F /* ImageHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FE80B9BA2BCD5A64008DBC96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE80B9BB2BCD5A64008DBC96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE80B9BD2BCD5A64008DBC96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LebenInDeutschlan/Preview Content\"";
+				DEVELOPMENT_TEAM = YCQ4KH7F3F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eminecetinkaya.LebenInDeutschlan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE80B9BE2BCD5A64008DBC96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LebenInDeutschlan/Preview Content\"";
+				DEVELOPMENT_TEAM = YCQ4KH7F3F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eminecetinkaya.LebenInDeutschlan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE80B9A92BCD5A62008DBC96 /* Build configuration list for PBXProject "LebenInDeutschlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE80B9BA2BCD5A64008DBC96 /* Debug */,
+				FE80B9BB2BCD5A64008DBC96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE80B9BC2BCD5A64008DBC96 /* Build configuration list for PBXNativeTarget "LebenInDeutschlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE80B9BD2BCD5A64008DBC96 /* Debug */,
+				FE80B9BE2BCD5A64008DBC96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE5A3E122C3574E100BF9939 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE5A3E132C3574E100BF9939 /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5A3E122C3574E100BF9939 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FE80B9A62BCD5A62008DBC96 /* Project object */;
+}
