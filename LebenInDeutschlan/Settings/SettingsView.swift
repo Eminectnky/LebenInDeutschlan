@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var selectedState: String = "Bayern" // Varsayılan eyalet
+    @EnvironmentObject var appState: AppState
     @State private var showAlert = false
     @State private var showStateSelection = false
-
+    
     let stateImages: [String: String] = [
         "Baden Württemberg": "state_flag_bw",
         "Bayern": "state_flag_by",
@@ -30,7 +30,7 @@ struct SettingsView: View {
         "Schleswig Holstein": "state_flag_sh",
         "Thüringen": "state_flag_th"
     ]
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -39,7 +39,6 @@ struct SettingsView: View {
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
-                        .multilineTextAlignment(.leading)
                         .frame(width: 400, height: 50)
                         .padding(.trailing, 50)
                 }
@@ -52,17 +51,16 @@ struct SettingsView: View {
                     showAlert = true
                 }) {
                     HStack {
-                        if let imageName = stateImages[selectedState] {
+                        if let imageName = stateImages[appState.selectedState] {
                             Image(imageName)
                                 .resizable()
                                 .frame(width: 40, height: 40)
                                 .cornerRadius(5)
                                 .padding()
                         }
-                         
                         VStack(alignment: .leading) {
                             Text("Federal Eyalet")
-                            Text(selectedState)
+                            Text(appState.selectedState)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
@@ -82,17 +80,10 @@ struct SettingsView: View {
                         secondaryButton: .cancel(Text("Hayır"))
                     )
                 }
-                
-                Spacer()
-                
             }
             .sheet(isPresented: $showStateSelection) {
-                StateSelectionView(selectedState: $selectedState)
+                StateSelectionView(selectedState: $appState.selectedState)
             }
         }
     }
-}
-
-#Preview {
-    SettingsView()
 }

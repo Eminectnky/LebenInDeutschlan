@@ -6,35 +6,63 @@
 //
 
 import SwiftUI
+import Foundation
 
-struct ExamView: View {
-    var body: some View {
-        NavigationView{
-            VStack{
-                VStack{
-                    Text("Leben In Deutschlan")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.leading)
-                        .frame(width: 400, height: 50)
-                        .padding(.trailing, 50)
-                }
-                .background(Color.gray)
-                
-                ZStack{
-                    ScrollView{
-                        
-                    }
-                }
-                
-                
-            }
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        stride(from: 0, to: count, by: size).map {
+            Array(self[$0..<Swift.min($0 + size, count)])
         }
-
     }
 }
 
-#Preview {
-    ExamView()
+struct ExamView: View {
+    @State private var exams: [[QuestionJsonData]] = []
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                VStack {
+                    Text("Leben In Deutschland")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                }
+                .background(Color.gray)
+                
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(0..<exams.count, id: \.self) { index in
+                            NavigationLink(destination: ExamDetailView(questions: exams[index], examNumber: index + 1)) {
+                                HStack {
+                                    
+                                    Text("Sınav #\(index + 1)")
+                                        .foregroundColor(.black)
+                                        .padding(.leading, 20)
+                                    
+                                    Spacer()
+                                }
+                                .padding()
+                                .background(Color.blue.opacity(0.3))
+                                .cornerRadius(10)
+                            }
+                        }
+                    }
+                    .padding()
+                }
+            }
+            .onAppear {
+                loadExams()
+            }
+        }
+    }
+    
+    func loadExams() {
+        if let questions = loadData() {
+            let shuffledQuestions = questions.shuffled()
+            exams = shuffledQuestions.chunked(into: 33)
+        }
+    }
 }

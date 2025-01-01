@@ -84,6 +84,7 @@ struct StateSelectionView: View {
                     }) {
                         Text("İptal")
                             .foregroundColor(.white)
+                            .frame(width: 90)
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(10)
@@ -96,6 +97,7 @@ struct StateSelectionView: View {
                     }) {
                         Text("Tamam")
                             .foregroundColor(.white)
+                            .frame(width: 90)
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(10)

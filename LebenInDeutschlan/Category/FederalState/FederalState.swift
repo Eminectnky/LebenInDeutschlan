@@ -12,10 +12,8 @@ struct FederalState: View {
     var stateKey: String
     @State private var stateName: String = ""
     
-    // ViewModel'inizi kullanmak için
     @StateObject var viewModel = MainContentSharedViewModel()
     
-    // federal_state.json dosyasını yüklemek için model
     struct FederalStateInfo: Codable {
         let id: Int
         let name: String
@@ -25,7 +23,6 @@ struct FederalState: View {
         let key: String
     }
     
-    // stateKey'i federalStateId'ye eşleştirme
     func getFederalStateId(for stateKey: String) -> Int? {
         guard let federalStates = loadFederalStates() else {
             return nil
@@ -33,7 +30,6 @@ struct FederalState: View {
         return federalStates.first(where: { $0.key == stateKey })?.id
     }
     
-    // federal_state.json dosyasını yükleme
     func loadFederalStates() -> [FederalStateInfo]? {
         guard let url = Bundle.main.url(forResource: "federal_states", withExtension: "json") else {
             print("federal_states.json bulunamadı")
@@ -49,7 +45,6 @@ struct FederalState: View {
         }
     }
     
-    // Seçilen şehrin sorularını yükleme
     func loadStateQuestions() {
         print("loadStateQuestions() çağrıldı")
         
@@ -58,7 +53,6 @@ struct FederalState: View {
             return
         }
         
-        // State adını almak için
         if let federalStates = loadFederalStates() {
             if let stateInfo = federalStates.first(where: { $0.key == stateKey }) {
                 stateName = stateInfo.name
@@ -70,8 +64,8 @@ struct FederalState: View {
             print("Federal eyaletler yüklenemedi")
         }
         
-        // ViewModel'den soruları alıyoruz
-        if let stateQuestions = viewModel.federalStateQuestions.first(where: { $0.federalStateId == federalStateId }) {
+        if let stateQuestions = viewModel.federalStateQuestions.first(where: { $0.federalStateId == getFederalStateId(for: stateKey) }) {
+
             self.indexedQuestions = stateQuestions.list.enumerated().map { (index, question) in
                 return IndexedQuestion(index: index, question: question)
             }.shuffled()
@@ -81,9 +75,6 @@ struct FederalState: View {
         }
     }
     
-    
-    
-    // IndexedQuestion yapısı
     struct IndexedQuestion: Identifiable, Equatable {
         let id = UUID()
         let index: Int
@@ -118,7 +109,6 @@ struct FederalState: View {
                                 .padding(.horizontal)
                             
                             if let imageName = indexedQuestion.question.imageName {
-                                // Görseli yüklemek için
                                 Image(imageName)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -142,7 +132,7 @@ struct FederalState: View {
                                     .background(getOptionBackgroundColor(for: indexedQuestion, optionIndex: optionIndex))
                                     .cornerRadius(10)
                                 }
-                                .disabled(correctOptions[indexedQuestion.id] != nil || selectedOptions[indexedQuestion.id] != nil) // Sorunun cevabı verilmişse tıklamayı kapat
+                                .disabled(correctOptions[indexedQuestion.id] != nil || selectedOptions[indexedQuestion.id] != nil)
                                 .padding(.horizontal)
                                 .padding(.vertical, -5)
                             }
@@ -163,6 +153,9 @@ struct FederalState: View {
                         }
                     }
                     .onAppear {
+                        self.loadStateQuestions()
+                    }
+                    .onChange(of: stateKey) { newStateKey in
                         self.loadStateQuestions()
                     }
                     
@@ -227,14 +220,12 @@ struct FederalState: View {
     }
     
     func handleOptionSelection(for indexedQuestion: IndexedQuestion, optionIndex: Int) {
-        // Daha önce cevap verilmişse işlemi durdur
         if correctOptions[indexedQuestion.id] != nil || selectedOptions[indexedQuestion.id] != nil {
             return
         }
         
         let correctOptionIndex = indexedQuestion.question.options.firstIndex { $0.isAnswer } ?? -1
         
-        // Yanıtlanan soru sayısını artır
         answeredCount += 1
         
         if optionIndex == correctOptionIndex {
@@ -280,7 +271,6 @@ struct FederalState: View {
 
 struct FederalState_Previews: PreviewProvider {
     static var previews: some View {
-        // Örnek olarak Berlin (stateKey: "be") kullanıyoruz
-        FederalState(stateKey: "hb")
+        FederalState(stateKey: "ni")
     }
 }

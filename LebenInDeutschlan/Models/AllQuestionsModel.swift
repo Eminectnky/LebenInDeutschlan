@@ -8,7 +8,7 @@
 import Foundation
 
 struct Option: Codable, Equatable, Identifiable {
-    var id = UUID()
+    var id = Int()
     let text: String
     let isAnswer: Bool
     
@@ -37,11 +37,22 @@ struct QuestionJsonData: Codable, Equatable {
 }
 
 func loadData() -> [QuestionJsonData]? {
-    guard let url = Bundle.main.url(forResource: "all_question_data", withExtension: "json"),
-          let data = try? Data(contentsOf: url),
-          let jsonDataModel = try? JSONDecoder().decode([QuestionJsonData].self, from: data) else {
+    guard let url = Bundle.main.url(forResource: "all_question_data", withExtension: "json") else {
+        print("JSON dosyası bulunamadı.")
         return nil
     }
-    return jsonDataModel
+    
+    print("JSON dosyası yolu: \(url.path)")
+    
+    do {
+        let data = try Data(contentsOf: url)
+        let jsonDataModel = try JSONDecoder().decode([QuestionJsonData].self, from: data)
+        return jsonDataModel
+    } catch {
+        print("JSON dosyası yüklenirken hata: \(error.localizedDescription)")
+        return nil
+    }
+    
+    
 }
 
