@@ -1,22 +1,17 @@
-//
-//  ExamDetailView.swift
-//  LebenInDeutschlan
-//
-//  Created by Emine CETINKAYA on 30.12.2024.
-//
-
 import SwiftUI
+import SwiftUIPager
 
 struct ExamDetailView: View {
     var questions: [QuestionJsonData]
     var examNumber: Int
     
-    @State private var currentQuestionIndex = 0
+    @StateObject var page: Page = .first()
     @State private var answeredCount = 0
     @State private var timer = 0
     
     var body: some View {
         VStack {
+            // Üst Başlık
             HStack {
                 Text("Sınav #\(examNumber)")
                     .font(.title2)
@@ -25,6 +20,7 @@ struct ExamDetailView: View {
                 Spacer()
                 
                 Button(action: {
+                    // Bitir Butonu
                 }) {
                     Text("Bitir")
                         .padding()
@@ -35,6 +31,7 @@ struct ExamDetailView: View {
             }
             .padding()
             
+            // Cevaplanmış Kutusu
             HStack {
                 Text("Cevaplanmış")
                 Text("\(answeredCount) / \(questions.count)")
@@ -45,68 +42,90 @@ struct ExamDetailView: View {
                 Text("\(formattedTime(seconds: timer))")
             }
             .padding()
+            .frame(width: 370, height: 60)
             .background(Color.blue.opacity(0.2))
             .cornerRadius(10)
+            .shadow(radius: 5)
             
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Soru: \(questions[currentQuestionIndex].order)")
-                    .font(.headline)
-                    .padding(.top)
-                
-                Text(questions[currentQuestionIndex].title)
-                    .font(.title3)
-                
-                ForEach(questions[currentQuestionIndex].options, id: \.id) { option in
-                    HStack {
-                        Image(systemName: "square")
-                        Text(option.text)
+            // Soruların Pager ile Gösterimi
+            Pager(page: page, data: questions.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 20) {
+                    Spacer().frame(height: 20)
+                    
+                    Text("Soru: \(questions[index].order)")
+                        .font(.headline)
+                        .padding(.horizontal)
+                    
+                    Text(questions[index].title)
+                        .font(.headline)
+                        .padding(.horizontal)
+                    
+                    ForEach(questions[index].options.indices, id: \.self) { optionIndex in
+                        let option = questions[index].options[optionIndex]
+                        Button(action: {
+                            handleOptionSelection(for: index, optionIndex: optionIndex)
+                        }) {
+                            HStack {
+                                Image(systemName: "square")
+                                    .foregroundColor(.black)
+                                Text(option.text)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        .padding(.horizontal)
                     }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(8)
-                    .shadow(radius: 2)
+                    
+                    Spacer()
                 }
+                .frame(width: 360, height: 600)
+                .background(Color.blue.opacity(0.2))
+                .cornerRadius(10)
+                .shadow(radius: 5)
             }
-            .padding()
-            .background(Color.blue.opacity(0.2))
-            .cornerRadius(15)
-            .padding()
+            .horizontal()
+            .itemSpacing(10)
             
-            Spacer()
-            
+            // Sayfa Geçiş Butonları
             HStack {
                 Button(action: {
-                    if currentQuestionIndex > 0 {
-                        currentQuestionIndex -= 1
+                    if page.index > 0 {
+                        page.update(.new(index: page.index - 1))
                     }
                 }) {
                     Image(systemName: "chevron.left")
                         .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 24, weight: .bold))
                 }
                 
-                Spacer()
-                
-                Text("\(currentQuestionIndex + 1) / \(questions.count)")
-                
-                Spacer()
+                Text("\(page.index + 1)/\(questions.count)")
+                    .font(.title3)
                 
                 Button(action: {
-                    if currentQuestionIndex < questions.count - 1 {
-                        currentQuestionIndex += 1
+                    if page.index < questions.count - 1 {
+                        page.update(.new(index: page.index + 1))
                     }
                 }) {
                     Image(systemName: "chevron.right")
                         .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 24, weight: .bold))
                 }
             }
             .padding()
+            .frame(width: 370, height: 60)
             .background(Color.blue.opacity(0.2))
             .cornerRadius(10)
-            .padding(.bottom)
+            .shadow(radius: 5)
         }
         .onAppear {
             startTimer()
         }
+    }
+    
+    func handleOptionSelection(for index: Int, optionIndex: Int) {
+        // Cevaplama mantığı buraya eklenebilir
+        answeredCount += 1
     }
     
     func startTimer() {

@@ -1,12 +1,4 @@
-//
-//  ExamView.swift
-//  LebenInDeutschlan
-//
-//  Created by Emine CETINKAYA on 16.04.2024.
-//
-
 import SwiftUI
-import Foundation
 
 extension Array {
     func chunked(into size: Int) -> [[Element]] {
@@ -36,17 +28,17 @@ struct ExamView: View {
                     VStack(spacing: 10) {
                         ForEach(0..<exams.count, id: \.self) { index in
                             NavigationLink(destination: ExamDetailView(questions: exams[index], examNumber: index + 1)) {
-                                HStack {
-                                    
+                                VStack {
                                     Text("Sınav #\(index + 1)")
                                         .foregroundColor(.black)
                                         .padding(.leading, 20)
-                                    
-                                    Spacer()
+                                        .font(.headline)
                                 }
+                                .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.blue.opacity(0.3))
                                 .cornerRadius(10)
+                                .shadow(radius: 5)
                             }
                         }
                     }
@@ -58,7 +50,7 @@ struct ExamView: View {
             }
         }
     }
-    
+
     func loadExams() {
         if let questions = loadData() {
             let shuffledQuestions = questions.shuffled()
