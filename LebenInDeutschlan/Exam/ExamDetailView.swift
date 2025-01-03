@@ -8,10 +8,10 @@ struct ExamDetailView: View {
     @StateObject var page: Page = .first()
     @State private var answeredCount = 0
     @State private var timer = 0
+    @State private var selectedOptions: [Int: Int] = [:]
     
     var body: some View {
         VStack {
-            // Üst Başlık
             HStack {
                 Text("Sınav #\(examNumber)")
                     .font(.title2)
@@ -20,7 +20,6 @@ struct ExamDetailView: View {
                 Spacer()
                 
                 Button(action: {
-                    // Bitir Butonu
                 }) {
                     Text("Bitir")
                         .padding()
@@ -31,7 +30,6 @@ struct ExamDetailView: View {
             }
             .padding()
             
-            // Cevaplanmış Kutusu
             HStack {
                 Text("Cevaplanmış")
                 Text("\(answeredCount) / \(questions.count)")
@@ -47,7 +45,6 @@ struct ExamDetailView: View {
             .cornerRadius(10)
             .shadow(radius: 5)
             
-            // Soruların Pager ile Gösterimi
             Pager(page: page, data: questions.indices, id: \.self) { index in
                 VStack(alignment: .leading, spacing: 20) {
                     Spacer().frame(height: 20)
@@ -59,20 +56,36 @@ struct ExamDetailView: View {
                     Text(questions[index].title)
                         .font(.headline)
                         .padding(.horizontal)
-                    
                     ForEach(questions[index].options.indices, id: \.self) { optionIndex in
                         let option = questions[index].options[optionIndex]
                         Button(action: {
                             handleOptionSelection(for: index, optionIndex: optionIndex)
                         }) {
                             HStack {
-                                Image(systemName: "square")
-                                    .foregroundColor(.black)
+                                ZStack {
+                                    Rectangle()
+                                        .strokeBorder(Color.black, lineWidth: 2)
+                                    
+                                    if selectedOptions[index] == optionIndex {
+                                        Rectangle()
+                                            .fill(Color.blue)
+                                    }
+                                    
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(selectedOptions[index] == optionIndex ? .black : .clear)
+                                }
+                                .frame(width: 20, height: 20)
+                                
                                 Text(option.text)
                                     .foregroundColor(.black)
                             }
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                            .cornerRadius(10)
+                            .shadow(radius: 2)
                         }
                         .padding(.horizontal)
+                        .disabled(selectedOptions[index] != nil)
                     }
                     
                     Spacer()
@@ -85,7 +98,6 @@ struct ExamDetailView: View {
             .horizontal()
             .itemSpacing(10)
             
-            // Sayfa Geçiş Butonları
             HStack {
                 Button(action: {
                     if page.index > 0 {
@@ -124,8 +136,10 @@ struct ExamDetailView: View {
     }
     
     func handleOptionSelection(for index: Int, optionIndex: Int) {
-        // Cevaplama mantığı buraya eklenebilir
-        answeredCount += 1
+        if selectedOptions[index] == nil {
+            answeredCount += 1
+        }
+        selectedOptions[index] = optionIndex
     }
     
     func startTimer() {
