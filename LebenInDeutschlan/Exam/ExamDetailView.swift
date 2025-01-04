@@ -10,6 +10,9 @@ struct ExamDetailView: View {
     @State private var timer = 0
     @State private var selectedOptions: [Int: Int] = [:]
     
+    @State private var showAlert = false
+    @State private var navigateToResult = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -20,6 +23,7 @@ struct ExamDetailView: View {
                 Spacer()
                 
                 Button(action: {
+                    showAlert = true
                 }) {
                     Text("Bitir")
                         .padding()
@@ -133,6 +137,21 @@ struct ExamDetailView: View {
         .onAppear {
             startTimer()
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Emin misin?"),
+                message: Text("Sınav sonlandırılacak."),
+                primaryButton: .default(Text("Evet"), action: {
+                    navigateToResult = true
+                }),
+                secondaryButton: .cancel(Text("Hayır"))
+            )
+        }
+        .background(
+            NavigationLink(destination: ExamResultView(), isActive: $navigateToResult) {
+                EmptyView()
+            }
+        )
     }
     
     func handleOptionSelection(for index: Int, optionIndex: Int) {
@@ -154,3 +173,4 @@ struct ExamDetailView: View {
         return String(format: "%02d:%02d", minutes, seconds)
     }
 }
+
