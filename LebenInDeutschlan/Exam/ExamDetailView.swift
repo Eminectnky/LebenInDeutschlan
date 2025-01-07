@@ -10,6 +10,9 @@ struct ExamDetailView: View {
     @State private var timer = 0
     @State private var selectedOptions: [Int: Int] = [:]
     
+    @State private var correctAnswers = 0
+    @State private var wrongAnswers = 0
+    @State private var emptyAnswers = 0
     @State private var showAlert = false
     @State private var navigateToResult = false
     
@@ -142,13 +145,14 @@ struct ExamDetailView: View {
                 title: Text("Emin misin?"),
                 message: Text("Sınav sonlandırılacak."),
                 primaryButton: .default(Text("Evet"), action: {
+                    calculateResults()
                     navigateToResult = true
                 }),
                 secondaryButton: .cancel(Text("Hayır"))
             )
         }
         .background(
-            NavigationLink(destination: ExamResultView(), isActive: $navigateToResult) {
+            NavigationLink(destination: ExamResultView(correctAnswers: correctAnswers, wrongAnswers: wrongAnswers, emptyAnswers: emptyAnswers), isActive: $navigateToResult) {
                 EmptyView()
             }
         )
@@ -167,10 +171,21 @@ struct ExamDetailView: View {
         }
     }
     
+    func calculateResults() {
+        correctAnswers = questions.filter {
+            if let selectedOptionIndex = selectedOptions[$0.order - 1] {
+                return $0.options[selectedOptionIndex].isAnswer
+            }
+            return false
+        }.count
+        wrongAnswers = answeredCount - correctAnswers
+        emptyAnswers = questions.count - answeredCount
+    }
+    
+    
     func formattedTime(seconds: Int) -> String {
         let minutes = seconds / 60
         let seconds = seconds % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
 }
-

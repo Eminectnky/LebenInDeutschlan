@@ -22,6 +22,7 @@
 		FE700FEC2BCEAC2E00ECC544 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE700FEB2BCEAC2D00ECC544 /* CategoryView.swift */; };
 		FE700FEE2BCEAC4A00ECC544 /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE700FED2BCEAC4A00ECC544 /* ExamView.swift */; };
 		FE700FF02BCEAC6500ECC544 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE700FEF2BCEAC6500ECC544 /* SettingsView.swift */; };
+		FE76348F2D2D78C900515ADB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE76348E2D2D78C900515ADB /* Charts.framework */; };
 		FE80B9B22BCD5A62008DBC96 /* LebenInDeutschlanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE80B9B12BCD5A62008DBC96 /* LebenInDeutschlanApp.swift */; };
 		FE80B9B42BCD5A62008DBC96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE80B9B32BCD5A62008DBC96 /* ContentView.swift */; };
 		FE80B9B62BCD5A64008DBC96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE80B9B52BCD5A64008DBC96 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		FE700FEB2BCEAC2D00ECC544 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		FE700FED2BCEAC4A00ECC544 /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
 		FE700FEF2BCEAC6500ECC544 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FE76348E2D2D78C900515ADB /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
 		FE80B9AE2BCD5A62008DBC96 /* LebenInDeutschlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LebenInDeutschlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE80B9B12BCD5A62008DBC96 /* LebenInDeutschlanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LebenInDeutschlanApp.swift; sourceTree = "<group>"; };
 		FE80B9B32BCD5A62008DBC96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE76348F2D2D78C900515ADB /* Charts.framework in Frameworks */,
 				FE5A3E142C3574E100BF9939 /* SwiftUIPager in Frameworks */,
 				FECD9C952D25EAED008BC42D /* Lottie in Frameworks */,
 			);
@@ -164,10 +167,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FE76348D2D2D78C900515ADB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE76348E2D2D78C900515ADB /* Charts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE80B9A52BCD5A62008DBC96 = {
 			isa = PBXGroup;
 			children = (
 				FE80B9B02BCD5A62008DBC96 /* LebenInDeutschlan */,
+				FE76348D2D2D78C900515ADB /* Frameworks */,
 				FE80B9AF2BCD5A62008DBC96 /* Products */,
 			);
 			sourceTree = "<group>";
