@@ -4,6 +4,7 @@ import SwiftUIPager
 struct ExamDetailView: View {
     var questions: [QuestionJsonData]
     var examNumber: Int
+    var onComplete: () -> Void
     
     @StateObject var page: Page = .first()
     @State private var answeredCount = 0
@@ -146,6 +147,7 @@ struct ExamDetailView: View {
                 message: Text("Sınav sonlandırılacak."),
                 primaryButton: .default(Text("Evet"), action: {
                     calculateResults()
+                    onComplete() 
                     navigateToResult = true
                 }),
                 secondaryButton: .cancel(Text("Hayır"))
@@ -180,6 +182,8 @@ struct ExamDetailView: View {
         }.count
         wrongAnswers = answeredCount - correctAnswers
         emptyAnswers = questions.count - answeredCount
+        
+        
     }
     
     

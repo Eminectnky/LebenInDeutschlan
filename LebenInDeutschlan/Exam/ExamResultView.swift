@@ -41,22 +41,72 @@ struct ExamResultView: View {
             .cornerRadius(10)
             
             Chart(data, id: \.name) { item in
+                let percentage = Double(item.value) / Double(totalQuestions) * 100
                 SectorMark(
                     angle: .value("Oran", item.value),
                     innerRadius: .ratio(0.5),
                     outerRadius: .ratio(0.9)
                 )
-                .foregroundStyle(by: .value("Durum", item.name))
+                .foregroundStyle(color(for: item.name))
+                .annotation(position: .overlay) {
+                    Text(formatPercentage(percentage))
+                        .font(.body)
+                        .bold()
+                        .foregroundColor(.black)
+                }
             }
             .frame(width: 300, height: 300)
             .padding()
-            .chartLegend(.visible)
-            .chartLegend(position: .bottom)
+            
+            // Legend Section
+            HStack(spacing: 20) {
+                LegendItem(color: .green, text: "Doğru")
+                LegendItem(color: .red, text: "Yanlış")
+                LegendItem(color: .gray, text: "Boş")
+            }
+            .padding(.top)
             
             Spacer()
         }
         .padding()
         .navigationTitle("Sınav Sonucu")
+    }
+    
+    func color(for name: String) -> Color {
+        switch name {
+        case "Doğru":
+            return .green
+        case "Yanlış":
+            return .red
+        case "Boş":
+            return .gray
+        default:
+            return .blue
+        }
+    }
+    
+    func formatPercentage(_ value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "tr_TR")
+        formatter.maximumFractionDigits = 1
+        return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
+    }
+}
+
+struct LegendItem: View {
+    var color: Color
+    var text: String
+    
+    var body: some View {
+        HStack {
+            Circle()
+                .fill(color)
+                .frame(width: 20, height: 20)
+            Text(text)
+                .font(.body)
+                .bold()
+        }
     }
 }
 
@@ -67,6 +117,6 @@ struct MacroData {
 
 #Preview {
     NavigationView {
-        ExamResultView(correctAnswers: 15, wrongAnswers: 3, emptyAnswers: 2)
+        ExamResultView(correctAnswers: 9, wrongAnswers: 20, emptyAnswers: 4)
     }
 }
