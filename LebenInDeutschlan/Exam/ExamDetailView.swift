@@ -16,6 +16,7 @@ struct ExamDetailView: View {
     @State private var emptyAnswers = 0
     @State private var showAlert = false
     @State private var navigateToResult = false
+    @State private var isExamCompleted = false
     
     var body: some View {
         VStack {
@@ -38,20 +39,22 @@ struct ExamDetailView: View {
             }
             .padding()
             
-            HStack {
-                Text("Cevaplanmış")
-                Text("\(answeredCount) / \(questions.count)")
-                    .bold()
-                
-                Spacer()
-                
-                Text("\(formattedTime(seconds: timer))")
+            if !isExamCompleted {
+                HStack {
+                    Text("Cevaplanmış")
+                    Text("\(answeredCount) / \(questions.count)")
+                        .bold()
+                    
+                    Spacer()
+                    
+                    Text("\(formattedTime(seconds: timer))")
+                }
+                .padding()
+                .frame(width: 370, height: 60)
+                .background(Color.blue.opacity(0.2))
+                .cornerRadius(10)
+                .shadow(radius: 5)
             }
-            .padding()
-            .frame(width: 370, height: 60)
-            .background(Color.blue.opacity(0.2))
-            .cornerRadius(10)
-            .shadow(radius: 5)
             
             Pager(page: page, data: questions.indices, id: \.self) { index in
                 VStack(alignment: .leading, spacing: 20) {
@@ -64,6 +67,7 @@ struct ExamDetailView: View {
                     Text(questions[index].title)
                         .font(.headline)
                         .padding(.horizontal)
+                    
                     ForEach(questions[index].options.indices, id: \.self) { optionIndex in
                         let option = questions[index].options[optionIndex]
                         Button(action: {
@@ -71,19 +75,24 @@ struct ExamDetailView: View {
                         }) {
                             HStack {
                                 ZStack {
+                                    // Dış çerçeve
                                     Rectangle()
                                         .strokeBorder(Color.black, lineWidth: 2)
-                                    
+                                        .frame(width: 20, height: 20)
+
+                                    // Seçim yapıldığında mavi arka plan ve tik işareti
                                     if selectedOptions[index] == optionIndex {
                                         Rectangle()
                                             .fill(Color.blue)
+                                            .frame(width: 20, height: 20)
+
+                                        Image(systemName: "checkmark")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 14, weight: .bold)) // Tik işareti boyutu
                                     }
-                                    
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(selectedOptions[index] == optionIndex ? .black : .clear)
                                 }
-                                .frame(width: 20, height: 20)
-                                
+
+                                // Seçenek metni
                                 Text(option.text)
                                     .foregroundColor(.black)
                             }
@@ -93,7 +102,7 @@ struct ExamDetailView: View {
                             .shadow(radius: 2)
                         }
                         .padding(.horizontal)
-                        .disabled(selectedOptions[index] != nil)
+                        .disabled(selectedOptions[index] != nil) // Seçim yapıldıktan sonra seçenek devre dışı
                     }
                     
                     Spacer()
@@ -105,6 +114,7 @@ struct ExamDetailView: View {
             }
             .horizontal()
             .itemSpacing(10)
+
             
             HStack {
                 Button(action: {
@@ -147,16 +157,24 @@ struct ExamDetailView: View {
                 message: Text("Sınav sonlandırılacak."),
                 primaryButton: .default(Text("Evet"), action: {
                     calculateResults()
-                    onComplete() 
-                    navigateToResult = true
+                    isExamCompleted = true // Sınav tamamlandı
+                    navigateToResult = true // Sonuç sayfasına git
                 }),
                 secondaryButton: .cancel(Text("Hayır"))
             )
         }
         .background(
-            NavigationLink(destination: ExamResultView(correctAnswers: correctAnswers, wrongAnswers: wrongAnswers, emptyAnswers: emptyAnswers), isActive: $navigateToResult) {
+            NavigationLink(
+                destination: ExamResultView(
+                    correctAnswers: correctAnswers,
+                    wrongAnswers: wrongAnswers,
+                    emptyAnswers: emptyAnswers
+                ),
+                isActive: $navigateToResult
+            ) {
                 EmptyView()
             }
+            .isDetailLink(false)
         )
     }
     
@@ -170,6 +188,9 @@ struct ExamDetailView: View {
     func startTimer() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.timer += 1
+            if navigateToResult {
+                timer.invalidate()
+            }
         }
     }
     
